@@ -33,13 +33,7 @@ function isDST() {
   }
 
   var today = new Date();
-  if (today.dst()) {
-    // console.log("DST");
-    return true;
-  } else {
-    // console.log("Not DST");
-    return false;
-  }
+  return today.dst();
 }
 
 function generateRow(route, towards, time) {
