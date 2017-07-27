@@ -10,7 +10,7 @@ $("document").ready(function() {
 
   $("div.submit").click(function() {
     clearTable();
-    var smsCode = document.getElementsByClassName("input")[0].value;
+    var smsCode = $('input').val();
     console.log(smsCode);
     getRoutes(smsCode);
   });
@@ -52,7 +52,7 @@ function generateRow(route, towards, time) {
   tr.appendChild(td2);
   tr.appendChild(td3);
 
-  document.getElementsByTagName("table")[0].appendChild(tr);
+  $('table')[0].appendChild(tr);
 }
 
 function generateDirection(routes) {
@@ -65,9 +65,9 @@ function generateDirection(routes) {
 
     var routes1 = routes[0];
     var routes2 = routes[1];
-
-    document.getElementsByClassName("arrivalsTop")[0].innerHTML = routes1.split("-")[0];
-    document.getElementsByClassName("arrivalsBottom")[0].innerHTML = routes2.split("-")[0];
+    
+    $('.arrivalsTop').html(routes1.split('-')[0]);
+    $('.arrivalsBottom').html(routes2.split('-')[0]);
 
     $(".arrivalsTop").click(function() {
       getArrivals(routes1.split("-")[1]);
@@ -78,7 +78,8 @@ function generateDirection(routes) {
   } else { // one direction
     $(".arrivalsWrapper2").css("display", "block");
 
-    document.getElementsByClassName("arrivalsSingle")[0].innerHTML = routes[0].split("-")[0];
+    // document.getElementsByClassName("arrivalsSingle")[0].innerHTML = routes[0].split("-")[0];
+    $('.arrivalsSingle').html(routes[0].split('-')[0]);
 
     $(".arrivalsSingle").click(function() {
       getArrivals(routes[0].split("-")[1]);
