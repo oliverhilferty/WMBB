@@ -65,7 +65,7 @@ function generateDirection(routes) {
 
     var routes1 = routes[0];
     var routes2 = routes[1];
-    
+
     $('.arrivalsTop').html(routes1.split('-')[0]);
     $('.arrivalsBottom').html(routes2.split('-')[0]);
 
@@ -78,7 +78,6 @@ function generateDirection(routes) {
   } else { // one direction
     $(".arrivalsWrapper2").css("display", "block");
 
-    // document.getElementsByClassName("arrivalsSingle")[0].innerHTML = routes[0].split("-")[0];
     $('.arrivalsSingle').html(routes[0].split('-')[0]);
 
     $(".arrivalsSingle").click(function() {
