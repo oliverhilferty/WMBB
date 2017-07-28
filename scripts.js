@@ -26,11 +26,11 @@ function isDST() {
     var jan = new Date(this.getFullYear(), 0, 1);
     var jul = new Date(this.getFullYear(), 6, 1);
     return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
-  }
+  };
 
   Date.prototype.dst = function() {
     return this.getTimezoneOffset() < this.stdTimezoneOffset();
-  }
+  };
 
   var today = new Date();
   return today.dst();
@@ -149,8 +149,8 @@ function getRoutes(smsCode) {
     var routes = [];
     // alert(data.children.length)
     for (var i = 0; i < data.children.length; i++) {
-      routes.push(data.children[i].additionalProperties[1].value +
-      "-" + data.children[i].naptanId);
+      routes.push(data.children[i].additionalProperties[1].value
+        + "-" + data.children[i].naptanId);
     }
     console.log(routes);
     //return routes;
