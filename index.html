@@ -4,44 +4,64 @@
   <head>
 
     <meta charset="utf-8">
-    <title>Where's My Bloody Bus</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="scripts.js"></script>
-    <style>@import url('https://fonts.googleapis.com/css?family=Roboto');</style>
+    <title>Where's My Bloody Bus!?</title>
+    <link type="text/css" rel="stylesheet" href="css/master.css" media="screen,projection">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   </head>
 
   <body>
-
-    <h1>WHERE'S MY BLOODY BUS!?</h1>
-    <label for="smsCode">Bus Stop SMS Code </label>
-    <input class="input" type="number" placeholder="e.g: 49191" name="smsCode">
-    <div class="submit">SUBMIT</div>
-
-    <div class="arrivalsWrapper1">
-      <div class="arrivalsTop">
-        Arrivals Top
+    <nav>
+      <div class="nav-wrapper red darken-3">
+        <div class="container">
+          <div class="col s12">
+            <a href="#" class="breadcrumb">Lorem Ipsum</a>
+          </div>
+        </div>
       </div>
-      <div class="arrivalsBottom">
-        Arrivals Bottom
+    </nav>
+
+    <div class="container">
+
+      <div class="input-field">
+        <input id="bus_code" type="number" class="smsCode">
+        <label for="bus_code">Bus Stop Code</label>
       </div>
+
+      <div class="waves-effect waves-light btn red darken-3">
+        <i class="material-icons right">send</i>submit
+      </div>
+
+      <div class="collection">
+        <a href="#" class="collection-item truncate waves-effect waves-light red darken-3 white-text"><i class="material-icons right">chevron_right</i>Lorem Ipsum</a>
+        <a href="#" class="collection-item truncate waves-effect waves-light red darken-3 white-text"><i class="material-icons right">chevron_right</i>Dolar Sit Amet</a>
+      </div>
+
+      <table class="bordered">
+        <thead>
+          <tr>
+            <th>Route</th>
+            <th>Destination</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>236</td>
+            <td>Lorem Ipsum Dolar</td>
+            <td>Due</td>
+          </tr>
+        </tbody>
+      </table>
+
     </div>
 
-    <div class="arrivalsWrapper2">
-      <div class="arrivalsSingle">
-        Arrivals Single
-      </div>
-    </div>
 
-    <table>
-      <tr>
-        <th>Route</th>
-        <th>Destination</th>
-        <th>Time</th>
-      </tr>
-    </table>
-
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/app.js" charset="utf-8"></script>
   </body>
 
 </html>
