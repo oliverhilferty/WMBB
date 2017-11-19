@@ -1,4 +1,4 @@
-var debug = true;
+var debug = false;
 
 $(document).ready(function() {
 
@@ -13,21 +13,27 @@ $(document).ready(function() {
 
 
     // Get arrivals for bus stop from sms code
-    getArrivals(smsCode).then(function(response) {
-      log(response);
-
-      // Extract required data from repsonse
-      var arrivals = parseArrivals(response);
-      log(arrivals);
-
-      var sortedArrivals = sortArrivals(arrivals);
-      log(sortedArrivals);
-
-      populateTable(sortedArrivals);
-
-    });
+    getArrivals(smsCode);
   });
 });
+
+
+/**
+ * The main app thread
+ * @param {Object} arrivals - The response from getArrivals
+ */
+function main(arrivals) {
+  log(arrivals);
+
+  // Extract required data from repsonse
+  arrivals = parseArrivals(arrivals);
+  log(arrivals);
+
+  var sortedArrivals = sortArrivals(arrivals);
+  log(sortedArrivals);
+
+  populateTable(sortedArrivals);
+}
 
 
 /**
@@ -188,22 +194,20 @@ function parseExpectedArrival(expectedArrival) {
 }
 
 /**
- * getArrivals() gets the arrival times for all buses at a specific bus stop
+ * getArrivals() gets the arrival times for all buses at a specific bus stop and
+ * passes the results to the main function
  * @param {String} smsCode The smsCode of a particular bus stop
- * @returns {Object} An object containing bus arrival times for the given smsCode
  */
-async function getArrivals(smsCode) {
+function getArrivals(smsCode) {
 
-  // Search for the stop code
-  var data = await $.getJSON(`https://api.tfl.gov.uk/StopPoint/Search/${smsCode}`);
+  $.getJSON(`https://api.tfl.gov.uk/StopPoint/Search/${smsCode}`).then(function(search) {
+    // Extract the stop id from the search results
+    var id = search.matches[0].id;
 
-  // Extract the stop id from the search results
-  var id = data.matches[0].id;
-
-  // Get the arrivals data
-  var arrivals = await $.getJSON(`https://api.tfl.gov.uk/StopPoint/${id}/Arrivals`);
-
-  return arrivals;
+    $.getJSON(`https://api.tfl.gov.uk/StopPoint/${id}/Arrivals`).then(function(response) {
+      main(response);
+    })
+  })
 }
 
 /**
