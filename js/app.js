@@ -4,6 +4,8 @@ $(document).ready(function() {
 
   // Event Listeners
   $('.submitButton').click(function() {
+    $('table').addClass('hide');
+
     // Get SMS code from input field
     var smsCode = $('.smsCode').val();
     log(smsCode);
@@ -11,11 +13,11 @@ $(document).ready(function() {
     // Clear the table
     clearTable();
 
-
     // Get arrivals for bus stop from sms code
     getArrivals(smsCode);
   });
 });
+
 
 
 /**
@@ -34,6 +36,7 @@ function main(arrivals) {
 
   populateTable(sortedArrivals);
 }
+
 
 
 /**
@@ -56,12 +59,16 @@ function isDST() {
   return today.dst();
 }
 
+
+
 /**
  * clearTable() clears all rows from the table
  */
 function clearTable() {
   $('td').remove();
 }
+
+
 
 /**
  * Extracts the routenumber, destination, and time until arrival from
@@ -99,6 +106,7 @@ function parseArrivals(arrivalsObject) {
 }
 
 
+
 /**
  * Sorts a list of arrival objects based on time until arrival
  * @param {Array} arrivalObjects - An array of arrival objects
@@ -112,12 +120,15 @@ function sortArrivals(arrivalObjects) {
 }
 
 
+
 /**
  * Populates the arrivals table
  * @param {Array} arrivalTimes - An array of objects containing route id,
  * destination, and time until arrival
  */
 function populateTable(arrivalTimes) {
+
+  $('table').removeClass('hide');
 
   // Cache the table body jquery object
   var $table = $('tbody');
@@ -157,6 +168,8 @@ function populateTable(arrivalTimes) {
   });
 }
 
+
+
 /**
  * parseExpectedArrival() calculates the time until a given time in minutes
  * @param {String} expectedArrival - expectedArrival string from arrivals object
@@ -193,6 +206,8 @@ function parseExpectedArrival(expectedArrival) {
   return timeUntil;
 }
 
+
+
 /**
  * getArrivals() gets the arrival times for all buses at a specific bus stop and
  * passes the results to the main function
@@ -209,6 +224,8 @@ function getArrivals(smsCode) {
     })
   })
 }
+
+
 
 /**
  * Log function for debugging
