@@ -13,6 +13,9 @@ $(document).ready(function() {
     // Clear the table
     clearTable();
 
+    // Show the spinner
+    $('.preloader-wrapper').removeClass('hide');
+
     // Get arrivals for bus stop from sms code
     getArrivals(smsCode);
   });
@@ -128,6 +131,8 @@ function sortArrivals(arrivalObjects) {
  */
 function populateTable(arrivalTimes) {
 
+  // Hide spinner and show table
+  $('.preloader-wrapper').addClass('hide');
   $('table').removeClass('hide');
 
   // Cache the table body jquery object
