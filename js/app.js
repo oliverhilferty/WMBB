@@ -77,8 +77,7 @@ function clearTable() {
  * Extracts the routenumber, destination, and time until arrival from
  * arrival object
  * @param {Object} arrivalsObject - Response from getArrivals()
- * @returns {Array} - An array of objects containg routes, destinations, and
- * arrival times of buses taken from arrivals argument
+ * @returns {Array} - An array of BusArrival objects
  */
 function parseArrivals(arrivalsObject) {
 
@@ -88,26 +87,33 @@ function parseArrivals(arrivalsObject) {
   // Iterate over the arrivals object
   arrivalsObject.forEach(function(arrival) {
 
-    // Init variable to hold details of bus arrival
-    var bus = {};
+    // construct new BusArrival object
+    var bus = new BusArrival(
+      arrival.lineId,
+      arrival.destinationName,
+      parseExpectedArrival(arrival.expectedArrival)
+    );
 
-    // Get route id from arrival object
-    bus.route = arrival.lineId;
-
-    // Get route destination from arrival object
-    bus.destination = arrival.destinationName;
-
-     // Get time until arrival
-     bus.timeUntil = parseExpectedArrival(arrival.expectedArrival);
-
-     // Append to arrivalTimes list
-     arrivalTimes.push(bus);
+    // Append to arrivalTimes list
+    arrivalTimes.push(bus);
 
   });
 
   return arrivalTimes;
 }
 
+
+/**
+ * @constructs BusArrival
+ * @param {String} route - The route number
+ * @param {String} destination - The bus destination
+ * @param {String} timeUntil - The time until the bus arrives
+ */
+ function BusArrival(route, destination, timeUntil) {
+   this.route = route;
+   this.destination = destination;
+   this.timeUntil = timeUntil;
+ }
 
 
 /**
