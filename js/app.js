@@ -1,4 +1,4 @@
-var debug = false;
+const debug = false;
 
 $(document).ready(function() {
 
@@ -7,8 +7,8 @@ $(document).ready(function() {
     $('table').addClass('hide');
 
     // Get SMS code from input field
-    var smsCode = $('.smsCode').val();
-    log(smsCode);
+      const smsCode = $('.smsCode').val();
+      log(smsCode);
 
     // Clear the table
     clearTable();
@@ -30,12 +30,12 @@ $(document).ready(function() {
 function main(arrivals) {
   log(arrivals);
 
-  // Extract required data from repsonse
+  // Extract required data from response
   arrivals = parseArrivals(arrivals);
   log(arrivals);
 
-  var sortedArrivals = sortArrivals(arrivals);
-  log(sortedArrivals);
+    const sortedArrivals = sortArrivals(arrivals);
+    log(sortedArrivals);
 
   populateTable(sortedArrivals);
 }
@@ -49,8 +49,8 @@ function main(arrivals) {
  */
 function isDST() {
   Date.prototype.stdTimezoneOffset = function() {
-    var jan = new Date(this.getFullYear(), 0, 1);
-    var jul = new Date(this.getFullYear(), 6, 1);
+    const jan = new Date(this.getFullYear(), 0, 1);
+    const jul = new Date(this.getFullYear(), 6, 1);
     return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
   };
 
@@ -74,7 +74,7 @@ function clearTable() {
 
 
 /**
- * Extracts the routenumber, destination, and time until arrival from
+ * Extracts the route number, destination, and time until arrival from
  * arrival object
  * @param {Object} arrivalsObject - Response from getArrivals()
  * @returns {Array} - An array of BusArrival objects
@@ -82,13 +82,13 @@ function clearTable() {
 function parseArrivals(arrivalsObject) {
 
   // initialize the array to hold the parsed arrivals
-  var arrivalTimes = [];
+  const arrivalTimes = [];
 
   // Iterate over the arrivals object
   arrivalsObject.forEach(function(arrival) {
 
     // construct new BusArrival object
-    var bus = new BusArrival(
+    const bus = new BusArrival(
       arrival.lineId,
       arrival.destinationName,
       parseExpectedArrival(arrival.expectedArrival)
@@ -142,22 +142,22 @@ function populateTable(arrivalTimes) {
   $('table').removeClass('hide');
 
   // Cache the table body jquery object
-  var $table = $('tbody');
+  const $table = $('tbody');
 
   // Sort arrival times
-  var sortedTimes = sortArrivals(arrivalTimes);
+  const sortedTimes = sortArrivals(arrivalTimes);
 
   sortedTimes.forEach(function(arrivalObject) {
 
     // Create route element
-    var $route = $('<td />').text(`${arrivalObject.route}`);
+    const $route = $('<td />').text(`${arrivalObject.route}`);
 
     // Create destination element
-    var $destination = $('<td />').text(`${arrivalObject.destination}`);
+    const $destination = $('<td />').text(`${arrivalObject.destination}`);
 
     // Convert arrival time to readable string
-    var timeUntilString;
-    var timeUntil = arrivalObject.timeUntil;
+    let timeUntilString;
+    const timeUntil = arrivalObject.timeUntil;
 
     if (timeUntil == 0) {
       timeUntilString = 'Due';
@@ -166,10 +166,10 @@ function populateTable(arrivalTimes) {
     }
 
     // Create time until element
-    var $timeUntil = $('<td />').text(`${timeUntilString}`);
+    const $timeUntil = $('<td />').text(`${timeUntilString}`);
 
     // create table row
-    var $row = $('<tr />');
+    const $row = $('<tr />');
 
     // append elements to row
     $row.append($route, $destination, $timeUntil);
