@@ -17,7 +17,7 @@ export default class Home extends Component {
     render() {
         return (
             <div className="Home">
-                <TextInput label="Bus Stop Code" className="noHelper"/>
+                <TextInput label="Bus Stop Code" className="no-helper"/>
                 <Button
                     waves="light"
                     className="red darken-3"
