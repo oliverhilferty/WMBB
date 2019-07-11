@@ -3,7 +3,7 @@ import 'jquery';
 import 'materialize-css/dist/js/materialize.js';
 import 'materialize-css/dist/css/materialize.css';
 import './Home.scss';
-import {TextInput, Button, Preloader, Row} from 'react-materialize';
+import {TextInput, Button, Preloader, Row, Icon} from 'react-materialize';
 
 export default class Home extends Component {
     constructor(props) {
@@ -12,6 +12,7 @@ export default class Home extends Component {
         this.state = {
             stopCode: '',
             isLoading: false,
+            userHasSubmitted: false,
             arrivals: []
         };
     }
@@ -24,9 +25,10 @@ export default class Home extends Component {
 
     handleSubmit = () => {
         console.log(this.state.stopCode);
-        this.setState({
-            isLoading: true
-        });
+        this.setState({isLoading: true});
+        setTimeout(() => {
+            this.setState({isLoading: false})
+        }, 2000);
     };
 
     validateStopCode = () => {
@@ -44,18 +46,23 @@ export default class Home extends Component {
                     onChange={this.handleChange}
                     value={this.state.stopCode}
                 />
+
                 <Button
                     waves="light"
                     className="red darken-3"
                     onClick={this.handleSubmit}
                     disabled={!this.validateStopCode()}
-                >Submit</Button>
-                {this.state.isLoading &&
-                <Row className="center-align">
-                    <Preloader
-                        color="red"
-                    />
-                </Row>
+                    type="number"
+                >Submit <Icon right>send</Icon></Button>
+
+                {this.state.isLoading ?
+                    <Row className="center-align">
+                        <Preloader
+                            color="red"
+                        />
+                    </Row>
+                    :
+                    <h3>Loaded!</h3>
                 }
             </div>
         );
