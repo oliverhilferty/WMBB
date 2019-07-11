@@ -10,17 +10,35 @@ export default class Home extends Component {
         super(props);
 
         this.state = {
-
+            stopCode: '',
+            isLoading: false
         };
     }
+
+    handleChange = (event) => {
+        this.setState({
+            [event.target.id]: event.target.value
+        });
+    };
+
+    handleSubmit = () => {
+        console.log(this.state.stopCode);
+    };
 
     render() {
         return (
             <div className="Home">
-                <TextInput label="Bus Stop Code" className="no-helper"/>
+                <TextInput
+                    label="Bus Stop Code"
+                    className="no-helper"
+                    id="stopCode"
+                    onChange={this.handleChange}
+                    value={this.state.stopCode}
+                />
                 <Button
                     waves="light"
                     className="red darken-3"
+                    onClick={this.handleSubmit}
                 >Submit</Button>
             </div>
         );
