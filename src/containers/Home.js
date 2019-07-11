@@ -3,7 +3,7 @@ import 'jquery';
 import 'materialize-css/dist/js/materialize.js';
 import 'materialize-css/dist/css/materialize.css';
 import './Home.scss';
-import {TextInput, Button} from 'react-materialize';
+import {TextInput, Button, Preloader, Row} from 'react-materialize';
 
 export default class Home extends Component {
     constructor(props) {
@@ -11,7 +11,8 @@ export default class Home extends Component {
 
         this.state = {
             stopCode: '',
-            isLoading: false
+            isLoading: false,
+            arrivals: []
         };
     }
 
@@ -23,6 +24,9 @@ export default class Home extends Component {
 
     handleSubmit = () => {
         console.log(this.state.stopCode);
+        this.setState({
+            isLoading: true
+        });
     };
 
     render() {
@@ -40,6 +44,13 @@ export default class Home extends Component {
                     className="red darken-3"
                     onClick={this.handleSubmit}
                 >Submit</Button>
+                {this.state.isLoading &&
+                <Row className="center-align">
+                    <Preloader
+                        color="red"
+                    />
+                </Row>
+                }
             </div>
         );
     }
