@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import 'jquery';
 import 'materialize-css/dist/js/materialize.js';
 import 'materialize-css/dist/css/materialize.css';
-import "./Home.css";
+import './Home.scss';
+import {TextInput} from 'react-materialize';
 
 export default class Home extends Component {
     render() {
