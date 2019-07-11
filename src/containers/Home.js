@@ -30,7 +30,8 @@ export default class Home extends Component {
     };
 
     validateStopCode = () => {
-        return this.state.stopCode.length === 5;
+        const stopCodePattern = new RegExp('^[0-9]{5}$');
+        return stopCodePattern.test(this.state.stopCode);
     };
 
     render() {
