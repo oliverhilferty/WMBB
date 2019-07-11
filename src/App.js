@@ -4,6 +4,7 @@ import 'materialize-css/dist/js/materialize.js';
 import 'materialize-css/dist/css/materialize.css';
 import './App.css';
 import { Container } from 'react-materialize';
+import Routes from './Routes';
 
 class App extends Component {
     render() {
@@ -17,7 +18,7 @@ class App extends Component {
                     </div>
                 </nav>
                 <Container>
-
+                    <Routes />
                 </Container>
             </div>
         );
