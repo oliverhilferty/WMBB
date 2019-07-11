@@ -5,3 +5,7 @@
 .no-helper ~ span.helper-text {
     display: none;
 }
+
+.preloader-wrapper {
+    top: calc(25vh - 50px);
+}

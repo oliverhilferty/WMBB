@@ -29,6 +29,10 @@ export default class Home extends Component {
         });
     };
 
+    validateStopCode = () => {
+        return this.state.stopCode.length === 5;
+    };
+
     render() {
         return (
             <div className="Home">
@@ -43,6 +47,7 @@ export default class Home extends Component {
                     waves="light"
                     className="red darken-3"
                     onClick={this.handleSubmit}
+                    disabled={!this.validateStopCode()}
                 >Submit</Button>
                 {this.state.isLoading &&
                 <Row className="center-align">
