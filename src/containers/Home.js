@@ -4,6 +4,7 @@ import 'materialize-css/dist/js/materialize.js';
 import 'materialize-css/dist/css/materialize.css';
 import './Home.scss';
 import {TextInput, Button, Preloader, Row, Icon} from 'react-materialize';
+import {getRawArrivals} from '../libs/busses'
 
 export default class Home extends Component {
     constructor(props) {
@@ -23,7 +24,8 @@ export default class Home extends Component {
         });
     };
 
-    handleSubmit = () => {
+    handleSubmit = async () => {
+        console.log(await getRawArrivals(this.state.stopCode));
         console.log(this.state.stopCode);
         this.setState({isLoading: true});
         setTimeout(() => {
