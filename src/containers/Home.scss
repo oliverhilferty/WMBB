@@ -1,3 +1,7 @@
 .input-field.col label {
     left: 0;
 }
+
+.noHelper ~ span.helper-text {
+    display: none;
+}
