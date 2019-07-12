@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/WMBB/static/css/main.56ce23ed.chunk.css",
-    "main.js": "/WMBB/static/js/main.d1680c51.chunk.js",
-    "main.js.map": "/WMBB/static/js/main.d1680c51.chunk.js.map",
+    "main.js": "/WMBB/static/js/main.1232428b.chunk.js",
+    "main.js.map": "/WMBB/static/js/main.1232428b.chunk.js.map",
     "runtime~main.js": "/WMBB/static/js/runtime~main.9e5386ca.js",
     "runtime~main.js.map": "/WMBB/static/js/runtime~main.9e5386ca.js.map",
     "static/css/2.a8967f2d.chunk.css": "/WMBB/static/css/2.a8967f2d.chunk.css",
     "static/js/2.9fd27684.chunk.js": "/WMBB/static/js/2.9fd27684.chunk.js",
     "static/js/2.9fd27684.chunk.js.map": "/WMBB/static/js/2.9fd27684.chunk.js.map",
     "index.html": "/WMBB/index.html",
-    "precache-manifest.b9586ffbd689df27928b811313dd0788.js": "/WMBB/precache-manifest.b9586ffbd689df27928b811313dd0788.js",
+    "precache-manifest.5a729e389e56eccdda98034a1c934360.js": "/WMBB/precache-manifest.5a729e389e56eccdda98034a1c934360.js",
     "service-worker.js": "/WMBB/service-worker.js",
     "static/css/2.a8967f2d.chunk.css.map": "/WMBB/static/css/2.a8967f2d.chunk.css.map",
     "static/css/main.56ce23ed.chunk.css.map": "/WMBB/static/css/main.56ce23ed.chunk.css.map",

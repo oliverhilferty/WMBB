@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "fc2e02c2d3742be26443bb6536f86a5e",
+    "revision": "e43ab7d9b41883fadf57ee93536203d0",
     "url": "/WMBB/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/WMBB/static/css/2.a8967f2d.chunk.css"
   },
   {
-    "revision": "8c3434e7e14b824d044f",
+    "revision": "0b7683b8009cf36c2d93",
     "url": "/WMBB/static/css/main.56ce23ed.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/WMBB/static/js/2.9fd27684.chunk.js"
   },
   {
-    "revision": "8c3434e7e14b824d044f",
-    "url": "/WMBB/static/js/main.d1680c51.chunk.js"
+    "revision": "0b7683b8009cf36c2d93",
+    "url": "/WMBB/static/js/main.1232428b.chunk.js"
   },
   {
     "revision": "460299734bde5e4724d2",
