@@ -13,7 +13,7 @@ class App extends Component {
                 <nav>
                     <div className="nav-wrapper red darken-3">
                         <Container>
-                            <a href="/" className="wmbb breadcrumb">Where's My Bloody Bus!?</a>
+                            <a href="/" className="breadcrumb">Where's My Bloody Bus!?</a>
                         </Container>
                     </div>
                 </nav>
