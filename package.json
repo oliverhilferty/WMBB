@@ -1,8 +1,10 @@
 {
   "name": "wmbb",
+  "homepage": "https://oliverhilferty.github.io/WMBB/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "jquery": "^3.4.1",
     "materialize-css": "^1.0.0",
     "node-sass": "^4.12.0",
@@ -13,6 +15,8 @@
     "react-scripts": "3.0.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
