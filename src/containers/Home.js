@@ -25,12 +25,18 @@ export default class Home extends Component {
     };
 
     handleSubmit = async () => {
-        console.log(await getRawArrivals(this.state.stopCode));
-        console.log(this.state.stopCode);
-        this.setState({isLoading: true});
-        setTimeout(() => {
-            this.setState({isLoading: false})
-        }, 2000);
+        this.setState({
+            arrivals: [],
+            isLoading: true
+        });
+
+        const rawArrivals = await getRawArrivals(this.state.stopCode);
+        const parsedArrivals = parseRawArrivals(rawArrivals);
+
+        this.setState({
+            arrivals: parsedArrivals,
+            isLoading: false
+        });
     };
 
     validateStopCode = () => {
