@@ -5,6 +5,7 @@ import 'materialize-css/dist/css/materialize.css';
 import './Home.scss';
 import {TextInput, Button, Preloader, Row, Icon, Table} from 'react-materialize';
 import {getRawArrivals, parseRawArrivals} from '../libs/busses'
+import BusTable from "../components/BusTable";
 
 export default class Home extends Component {
     constructor(props) {
@@ -72,32 +73,7 @@ export default class Home extends Component {
                 }
 
                 {this.state.arrivals.length > 0 &&
-                    <Table>
-                        <thead>
-                        <tr>
-                            <th data-field="route">
-                                Route
-                            </th>
-                            <th data-field="destination">
-                                Destination
-                            </th>
-                            <th data-field="time">
-                                Time
-                            </th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            {this.state.arrivals.map((arrival) => {
-                                return (
-                                    <tr>
-                                        <td>{arrival.routeNumber}</td>
-                                        <td>{arrival.destination}</td>
-                                        <td>{arrival.timeUntilArrivalString}</td>
-                                    </tr>
-                                )
-                            })}
-                        </tbody>
-                    </Table>
+                    <BusTable arrivals={this.state.arrivals} />
                 }
             </div>
         );
