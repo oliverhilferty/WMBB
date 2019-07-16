@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e43ab7d9b41883fadf57ee93536203d0",
+    "revision": "cf918e0d6d042cf2a90b31a7a602c271",
     "url": "/WMBB/index.html"
   },
   {
-    "revision": "2484d850c7b727d5efa9",
+    "revision": "7e7636ca5ba5b7230ca4",
     "url": "/WMBB/static/css/2.a8967f2d.chunk.css"
   },
   {
-    "revision": "0b7683b8009cf36c2d93",
-    "url": "/WMBB/static/css/main.56ce23ed.chunk.css"
+    "revision": "1ffdfb419f881f7fc380",
+    "url": "/WMBB/static/css/main.0d63d2d9.chunk.css"
   },
   {
-    "revision": "2484d850c7b727d5efa9",
-    "url": "/WMBB/static/js/2.9fd27684.chunk.js"
+    "revision": "7e7636ca5ba5b7230ca4",
+    "url": "/WMBB/static/js/2.67399955.chunk.js"
   },
   {
-    "revision": "0b7683b8009cf36c2d93",
-    "url": "/WMBB/static/js/main.1232428b.chunk.js"
+    "revision": "1ffdfb419f881f7fc380",
+    "url": "/WMBB/static/js/main.f1ec79a9.chunk.js"
   },
   {
     "revision": "460299734bde5e4724d2",
