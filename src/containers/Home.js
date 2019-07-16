@@ -3,7 +3,7 @@ import 'jquery';
 import 'materialize-css/dist/js/materialize.js';
 import 'materialize-css/dist/css/materialize.css';
 import './Home.scss';
-import {TextInput, Button, Preloader, Row, Icon, Table} from 'react-materialize';
+import {TextInput, Button, Preloader, Row, Icon} from 'react-materialize';
 import {getRawArrivals, parseRawArrivals} from '../libs/busses'
 import BusTable from "../components/BusTable";
 
@@ -54,6 +54,7 @@ export default class Home extends Component {
                     id="stopCode"
                     onChange={this.handleChange}
                     value={this.state.stopCode}
+                    type="number"
                 />
 
                 <Button
@@ -61,7 +62,6 @@ export default class Home extends Component {
                     className="red darken-3"
                     onClick={this.handleSubmit}
                     disabled={!this.validateStopCode()}
-                    type="number"
                 >Submit <Icon right>send</Icon></Button>
 
                 {this.state.isLoading &&
