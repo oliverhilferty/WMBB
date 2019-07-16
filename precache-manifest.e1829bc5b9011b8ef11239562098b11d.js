@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ece1ae43cb504590281e804555d22ea1",
+    "revision": "2cdeaf0d85a9dfbb9ad2147d607a40a0",
     "url": "/WMBB/index.html"
   },
   {
