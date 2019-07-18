@@ -10,10 +10,17 @@ export default class UserStops extends Component {
     constructor(props) {
         super(props);
 
+        const userData = readUserData();
+        const userStops = userData.hasOwnProperty('stops') ? userData.stops : [];
         this.state = {
             stopName: '',
-            stopCode: ''
-        }
+            stopCode: '',
+            stops: userStops
+        };
+    }
+
+    componentDidMount() {
+        console.log(this.state);
     }
 
     handleChange = (event) => {
