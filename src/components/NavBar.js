@@ -11,7 +11,7 @@ export default ({
     ...props
 }) =>
     <Navbar
-        className="red darken-3"
+        className={`red darken-3 ${className}`}
         alignLinks="right"
         brand={
             <Link to="/">Where's My Bloody Bus!?</Link>
