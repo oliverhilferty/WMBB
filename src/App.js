@@ -6,8 +6,26 @@ import './App.scss';
 import { Container, Navbar, NavItem } from 'react-materialize';
 import {Link} from "react-router-dom";
 import Routes from './Routes';
+import SideNav from "./components/SideNav";
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            navLinks: [
+                {
+                    name: "Home",
+                    href: "/"
+                },
+                {
+                    name: "My Stops",
+                    href: "/user-stops"
+                }
+            ]
+        }
+    }
+
     render() {
         return (
             <div className="App app-container">
@@ -17,17 +35,11 @@ class App extends Component {
                     brand={
                         <Link to="/">Where's My Bloody Bus!?</Link>
                     }
-                    sidenav={<>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/user-stops">My Stops</Link></li>
-                    </>}
+                    sidenav={<SideNav links={this.state.navLinks}/>}
                 >
-                    <NavItem href="/">
-                        <Link to="/">Home</Link>
-                    </NavItem>
-                    <NavItem>
-                        <Link to="/user-stops">My Stops</Link>
-                    </NavItem>
+                    {this.state.navLinks.map((link, key) => {
+                        return <Link key={key} to={link.href}>{link.name}</Link>
+                    })}
                 </Navbar>
                 <Container>
                     <Routes />
