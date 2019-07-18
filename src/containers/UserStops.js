@@ -5,6 +5,7 @@ import 'materialize-css/dist/css/materialize.css';
 import './UserStops.scss';
 import {TextInput, Button, Icon} from 'react-materialize';
 import {readUserData, saveStop} from "../libs/utils";
+import StopsList from "../components/StopsList";
 
 export default class UserStops extends Component {
     constructor(props) {
@@ -12,6 +13,7 @@ export default class UserStops extends Component {
 
         const userData = readUserData();
         const userStops = userData.hasOwnProperty('stops') ? userData.stops : [];
+
         this.state = {
             stopName: '',
             stopCode: '',
@@ -69,6 +71,8 @@ export default class UserStops extends Component {
                 <div className="divider" />
 
                 <h4>My Stops</h4>
+
+                <StopsList stops={this.state.stops} />
             </div>
         )
     }
