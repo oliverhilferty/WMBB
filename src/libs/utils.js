@@ -10,3 +10,41 @@ export const timeUntil = (time, now = new Date()) => {
     const mins = difference / 1000 / 60;
     return Math.round(mins);
 };
+
+/**
+ * Writes user data to local storage
+ * @param {Object} data
+ */
+export const writeUserData = (data) => {
+    window.localStorage.setItem('userData', JSON.stringify(data));
+};
+
+/**
+ * Reads user data from local storage
+ * @returns {Object}
+ */
+export const readUserData = () => {
+    const storage = window.localStorage;
+
+    // Create a user data object on local storage if one doesn't already exist
+    if (!storage.getItem('userData')) {
+        writeUserData({});
+    }
+
+    return JSON.parse(storage.userData);
+};
+
+export const saveStop = (stopName, stopNumber) => {
+    const userData = readUserData();
+
+    if (!userData.hasOwnProperty('stops')) {
+        userData.stops = [];
+    }
+
+    userData.stops.push({
+        stopName,
+        stopNumber
+    });
+
+    writeUserData(userData);
+};
