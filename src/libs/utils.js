@@ -34,7 +34,7 @@ export const readUserData = () => {
     return JSON.parse(storage.userData);
 };
 
-export const saveStop = (stopName, stopNumber) => {
+export const saveStop = (stopName, stopCode) => {
     const userData = readUserData();
 
     if (!userData.hasOwnProperty('stops')) {
@@ -43,7 +43,7 @@ export const saveStop = (stopName, stopNumber) => {
 
     userData.stops.push({
         stopName,
-        stopNumber
+        stopCode
     });
 
     writeUserData(userData);
