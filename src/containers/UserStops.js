@@ -4,6 +4,7 @@ import 'materialize-css/dist/js/materialize.js';
 import 'materialize-css/dist/css/materialize.css';
 import './UserStops.scss';
 import {TextInput, Button, Icon} from 'react-materialize';
+import {readUserData, saveStop} from "../libs/utils";
 
 export default class UserStops extends Component {
     constructor(props) {
@@ -21,6 +22,11 @@ export default class UserStops extends Component {
         });
     };
 
+    handleSubmit = () => {
+        saveStop(this.state.stopName, this.state.stopCode);
+        console.log(readUserData())
+    };
+
     validateForm = () => {
         return true;
     };
@@ -29,6 +35,7 @@ export default class UserStops extends Component {
         return (
             <div className="UserStops">
                 <h4>Add a stop</h4>
+
                 <TextInput
                     label="Name"
                     id="stopName"
@@ -36,6 +43,7 @@ export default class UserStops extends Component {
                     value={this.state.stopName}
                     type="text"
                 />
+
                 <TextInput
                     label="Stop Code"
                     id="stopCode"
@@ -43,13 +51,16 @@ export default class UserStops extends Component {
                     value={this.state.stopCode}
                     type="number"
                 />
+
                 <Button
                     waves="light"
                     className="red darken-3"
                     onClick={this.handleSubmit}
                     disabled={!this.validateForm()}
                 >Add <Icon right>add</Icon></Button>
+
                 <div className="divider" />
+
                 <h4>My Stops</h4>
             </div>
         )
