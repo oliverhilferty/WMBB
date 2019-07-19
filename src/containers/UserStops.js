@@ -77,7 +77,11 @@ export default class UserStops extends Component {
 
                 <h4>My Stops</h4>
 
-                <StopsList stops={this.state.stops} />
+                {this.state.stops.length > 0 ?
+                    <StopsList stops={this.state.stops} />
+                    :
+                    <h6>You don't have any saved stops yet :(</h6>
+                }
             </div>
         )
     }
