@@ -33,6 +33,11 @@ export default class UserStops extends Component {
 
     handleSubmit = () => {
         saveStop(this.state.stopName, this.state.stopCode);
+        this.setState({
+            stops: readUserData().stops,
+            stopName: '',
+            stopCode: ''
+        });
         console.log(readUserData())
     };
 
