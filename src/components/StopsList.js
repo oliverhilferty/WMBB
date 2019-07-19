@@ -1,7 +1,8 @@
 import React from 'react';
 import 'materialize-css/dist/css/materialize.css';
-import {Collection, CollectionItem} from 'react-materialize';
+import {Collection, Icon} from 'react-materialize';
 import './StopsList.scss';
+import Link from "react-router-dom/es/Link";
 
 export default ({
     stops,
@@ -11,9 +12,10 @@ export default ({
     <Collection className={className} {...props}>
         {stops.map((stop, key) => {
             return (
-                <CollectionItem key={key} href={`/?stopCode=${stop.stopCode}`} className="red-text text-darken-3">
+                <Link to={`/?stopCode=${stop.stopCode}`} className="collection-item black-text" key={key}>
                     {stop.stopName}
-                </CollectionItem>
+                    <Link to="/" className="secondary-content"><Icon className="red-text text-darken-3">close</Icon></Link>
+                </Link>
             )
         })}
     </Collection>
