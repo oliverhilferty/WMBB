@@ -14,7 +14,7 @@ export default ({
             return (
                 <Link to={`/?stopCode=${stop.stopCode}`} className="collection-item black-text" key={key}>
                     {stop.stopName}
-                    <Link to="/" className="secondary-content"><Icon className="red-text text-darken-3">close</Icon></Link>
+                    <Icon className="red-text text-darken-3 secondary-content">close</Icon>
                 </Link>
             )
         })}
