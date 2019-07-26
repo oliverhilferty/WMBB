@@ -4,7 +4,7 @@ import 'materialize-css/dist/js/materialize.js';
 import 'materialize-css/dist/css/materialize.css';
 import './UserStops.scss';
 import {TextInput, Button, Icon} from 'react-materialize';
-import {readUserData, saveStop} from "../libs/utils";
+import {readUserData, saveStop, stopCodePattern} from "../libs/utils";
 import StopsList from "../components/StopsList";
 
 export default class UserStops extends Component {
@@ -42,7 +42,7 @@ export default class UserStops extends Component {
     };
 
     validateForm = () => {
-        return true;
+        return stopCodePattern.test(this.state.stopCode) && this.state.stopName.length > 0;
     };
 
     render() {
