@@ -7,7 +7,7 @@ export default ({
     links,
     // react-materialize unfortunately does not provide a way to programmatically close the sidenav, so we simulate
     // a click on the sidenav overlay in order to get it to close
-    closeNav = () => document.getElementsByClassName('sidenav-overlay')[0].click()
+    closeNav = () => document.querySelector('.sidenav-overlay').click()
 }) => {
     return <>{
         links.map((link, key) => {
