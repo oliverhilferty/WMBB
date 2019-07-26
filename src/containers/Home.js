@@ -5,6 +5,7 @@ import 'materialize-css/dist/css/materialize.css';
 import './Home.scss';
 import {TextInput, Button, Preloader, Row, Icon} from 'react-materialize';
 import {getRawArrivals, parseRawArrivals} from '../libs/busses'
+import {stopCodePattern} from "../libs/utils";
 import BusTable from "../components/BusTable";
 
 export default class Home extends Component {
@@ -41,7 +42,6 @@ export default class Home extends Component {
     };
 
     validateStopCode = () => {
-        const stopCodePattern = new RegExp('^[0-9]{5}$');
         return stopCodePattern.test(this.state.stopCode);
     };
 

@@ -48,3 +48,5 @@ export const saveStop = (stopName, stopCode) => {
 
     writeUserData(userData);
 };
+
+export const stopCodePattern = new RegExp('^[0-9]{5}$');
