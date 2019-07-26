@@ -4,7 +4,7 @@ import 'materialize-css/dist/js/materialize.js';
 import 'materialize-css/dist/css/materialize.css';
 import './UserStops.scss';
 import {TextInput, Button, Icon} from 'react-materialize';
-import {readUserData, saveStop, stopCodePattern} from "../libs/utils";
+import {readUserData, stopCodePattern, writeUserData} from "../libs/utils";
 import StopsList from "../components/StopsList";
 
 export default class UserStops extends Component {
@@ -21,8 +21,22 @@ export default class UserStops extends Component {
         };
     }
 
+    saveStops = () => {
+        const userData = readUserData();
+        userData.stops = this.state.stops;
+        writeUserData(userData);
+    };
+
     componentDidMount() {
         console.log(this.state);
+
+        window.addEventListener('unload', () => {
+            this.saveStops();
+        });
+    }
+
+    componentWillUnmount() {
+        this.saveStops();
     }
 
     handleChange = (event) => {
@@ -32,9 +46,8 @@ export default class UserStops extends Component {
     };
 
     handleSubmit = () => {
-        saveStop(this.state.stopName, this.state.stopCode);
         this.setState({
-            stops: readUserData().stops,
+            stops: [...this.state.stops, {stopName: this.state.stopName, stopCode: this.state.stopCode}],
             stopName: '',
             stopCode: ''
         });
