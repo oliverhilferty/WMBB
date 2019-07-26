@@ -46,12 +46,28 @@ export default class UserStops extends Component {
     };
 
     handleSubmit = () => {
+        const stop = {
+            stopName: this.state.stopName,
+            stopCode: this.state.stopCode,
+            id: `${Math.random().toString().replace('0.', '')}_${new Date().getTime()}`
+        };
+
         this.setState({
-            stops: [...this.state.stops, {stopName: this.state.stopName, stopCode: this.state.stopCode}],
+            stops: [...this.state.stops, stop],
             stopName: '',
             stopCode: ''
         });
         console.log(readUserData())
+    };
+
+    deleteStop = (id) => {
+        console.log(id);
+
+        const stops = this.state.stops.filter(stop => {
+            return stop.id !== id;
+        });
+
+        this.setState({stops});
     };
 
     validateForm = () => {
@@ -91,7 +107,7 @@ export default class UserStops extends Component {
                 <h4>My Stops</h4>
 
                 {this.state.stops.length > 0 ?
-                    <StopsList stops={this.state.stops} />
+                    <StopsList stops={this.state.stops} deleteStop={this.deleteStop}/>
                     :
                     <h6>You don't have any saved stops yet :(</h6>
                 }

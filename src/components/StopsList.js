@@ -7,6 +7,7 @@ import Link from "react-router-dom/es/Link";
 export default ({
     stops,
     className="",
+    deleteStop,
     ...props
 }) =>
     <Collection className={className} {...props}>
@@ -14,7 +15,13 @@ export default ({
             return (
                 <Link to={`/?stopCode=${stop.stopCode}`} className="collection-item black-text" key={key}>
                     {stop.stopName}
-                    <Icon className="red-text text-darken-3 secondary-content">close</Icon>
+                    <i
+                        className="material-icons red-text text-darken-3 secondary-content"
+                        onClick={(ev) => {
+                            ev.preventDefault();
+                            deleteStop(stop.id)
+                        }}
+                    >close</i>
                 </Link>
             )
         })}
