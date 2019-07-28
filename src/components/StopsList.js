@@ -1,6 +1,6 @@
 import React from 'react';
 import 'materialize-css/dist/css/materialize.css';
-import {Collection, Icon} from 'react-materialize';
+import {Collection} from 'react-materialize';
 import './StopsList.scss';
 import Link from "react-router-dom/es/Link";
 
