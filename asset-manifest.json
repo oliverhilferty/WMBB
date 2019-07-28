@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/WMBB/static/css/main.8836a110.chunk.css",
+    "main.css": "/WMBB/static/css/main.99b4c436.chunk.css",
     "main.js": "/WMBB/static/js/main.ab1b6ea5.chunk.js",
     "main.js.map": "/WMBB/static/js/main.ab1b6ea5.chunk.js.map",
     "runtime~main.js": "/WMBB/static/js/runtime~main.9e5386ca.js",
@@ -9,10 +9,10 @@
     "static/js/2.595777e8.chunk.js": "/WMBB/static/js/2.595777e8.chunk.js",
     "static/js/2.595777e8.chunk.js.map": "/WMBB/static/js/2.595777e8.chunk.js.map",
     "index.html": "/WMBB/index.html",
-    "precache-manifest.37e03f3723812e1c9227fbac839fa712.js": "/WMBB/precache-manifest.37e03f3723812e1c9227fbac839fa712.js",
+    "precache-manifest.1f09cb5471c82a19346279bc203d1d89.js": "/WMBB/precache-manifest.1f09cb5471c82a19346279bc203d1d89.js",
     "service-worker.js": "/WMBB/service-worker.js",
     "static/css/2.a8967f2d.chunk.css.map": "/WMBB/static/css/2.a8967f2d.chunk.css.map",
-    "static/css/main.8836a110.chunk.css.map": "/WMBB/static/css/main.8836a110.chunk.css.map",
+    "static/css/main.99b4c436.chunk.css.map": "/WMBB/static/css/main.99b4c436.chunk.css.map",
     "static/media/index.css": "/WMBB/static/media/Roboto-Regular.5136cbe6.woff2"
   }
 }
