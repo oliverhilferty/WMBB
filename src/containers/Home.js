@@ -18,6 +18,17 @@ export default class Home extends Component {
             userHasSubmitted: false,
             arrivals: []
         };
+
+        const url = new URL(document.location.href);
+        const stopCode = url.searchParams.get('stopCode');
+        if (stopCode !== null) {
+            this.state.stopCode = stopCode;
+            this.handleSubmit().then();
+        }
+    }
+
+    componentDidMount() {
+
     }
 
     handleChange = (event) => {
