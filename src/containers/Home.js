@@ -27,10 +27,6 @@ export default class Home extends Component {
         }
     }
 
-    componentDidMount() {
-
-    }
-
     handleChange = (event) => {
         this.setState({
             [event.target.id]: event.target.value
